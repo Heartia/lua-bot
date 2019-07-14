@@ -1,1 +1,1 @@
-    lua-bot: luvit "invitebot.lua"
+    lua-robot: luvit "invitebot.lua"

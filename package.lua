@@ -1,5 +1,5 @@
 return {
-  name = "lua-bot",
+  name = "lua-robot",
   version = "1.0.0",
   description = "bla bla bla",
   dependencies = {

@@ -10,10 +10,10 @@ admin list
 Maybe make bot be able to be controlled by discord commands on the BL discord server in the future if possible (will require the lua module discordia). The advantages of this is that only verified members can send messages to the bot, and discord chats are much easier to control than tfm chats.
 --]]
 
-botName = "Luaalt#2590" -- your bot's name
-botPw = "f0rtisim0" -- your bot's password
+botName = "Hollobot" -- your bot's name
+botPw = "2KnightsOfTheHollow64" -- your bot's password
 ownerID = "58848589" -- ownerID
-key = "jOMOanwzn6HHb3W2MYkdIKqnNYh8F3KXE9cIF7z-YsjcFvLI7gpWZX-UF5bNo4ozea-" -- key
+key = "pcAVfk2e-Mk3plwXgE284gFW6iFfmQ9gpyVp8U9g4Mb-BqKSdED3QIvXURbRDr" -- key
 chat = "blbots" -- If things get a little out of control in the #blbots chat, try changing this value to something else.
 admins = {"Radioactium#0000", "Hollosou#6531", "Lanadelrey#1407", "Brooklyn#4914", "Ashbolt#0000", "Voyeur#9539"} -- add admins here
 

@@ -3,7 +3,7 @@ botPw = "2KnightsOfTheHollow48" -- your bot's password
 ownerID = "101454901" -- ownerID
 key = "pcAVfk2e-Mk3plwXgE284gFW6iFfmQ9gpyVp8U9g4Mb-BqKSdED3QIvXURbRDr" -- key
 chat = "blbots" -- If things get a little out of control in the #blbots chat, try changing this value to something else.
-admins = {"Radioactium#0000", "Hollosou#6531", "Lanadelrey#1407", "Brooklyn#4914", "Ashbolt#0000", "Voyeur#9539", "Alfiecakes#0000", "Trivia#3603", "Floawt#0000", "Laurineeeeee#2008", "Voshk#1486", "Fluffy#3087", "Ninetailsdes#0000"} -- add admins here
+admins = {"Radioactium#0000", "Hollosou#6531", "Lanadelrey#1407", "Brooklyn#4914", "Ashbolt#0000", "Voyeur#9539", "Alfiecakes#0000", "Trivia#3603", "Floawt#0000", "Laurineeeeee#2008", "Voshk#1486", "Fluffy#3087", "Ninetailsdes#0000", "Sophsoul#0918"} -- add admins here
 
 local timer = require("timer")
 local transfromage = require("transfromage")

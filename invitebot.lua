@@ -219,6 +219,7 @@ client:on("profileLoaded", function(data)
 			local valid = true
 			for _,v in pairs(blacklistNames) do
 				if v == data.playerName then -- checks if player is blacklisted
+					print(v)
 					valid = false
 					break
 				end

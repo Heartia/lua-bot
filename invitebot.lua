@@ -26,6 +26,7 @@ client:setCommunity(14) -- currently this causes the bot to join the en2 server.
 blacklistNames = {}
 for line in io.lines("blacklist.txt") do 
 	blacklistNames[#blacklistNames + 1] = line -- reads blacklist.txt
+	print(line)
 end
 
 declinedNames = {}

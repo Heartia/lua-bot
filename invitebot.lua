@@ -99,7 +99,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
 						declinedFile:write(words[2] .. " " .. playerName, "\n")
 						declinedNames[#declinedNames + 1] = words[2]
 						client:sendChatMessage(chat, playerName .. "has put " .. words[2] .. " on the declined list.")
-						print(playerName .. "has put " .. words[2] .. " on the declined list.")
+						print(playerName .. " has put " .. words[2] .. " on the declined list.")
 						lastMessageDeclined = nil
 					else -- joins a room based on the message, and then finds all player's names' there
 						lastMessage = playerName

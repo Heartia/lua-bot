@@ -1,15 +1,3 @@
---[[
-BL Recruit Bot by Radioactium#0000
-Change botName, botPw, mainName, ownerID, key to your own values.
-Bugs:
-If "impossible to connect" error recieved, then use another botName. If error persists, then make sure the new/alternative botName is linked to a different email than the original botName. After a while, it should be safe to use the original botName again. This is caused by tfm's bot detection system, which is made to help prevent hackers from creating their own bots, so there is nothing that can be done to fix this bug for now.
-If your bot doesn't send any messages, it is probably because tfm is preventing your bot from sending any messages, which is probably because your bot account has less than 4 hours of playtime. Again, this can't be fixed unfortunately.
-To be added in the future: 
-decline cmd
-admin list
-Maybe make bot be able to be controlled by discord commands on the BL discord server in the future if possible (will require the lua module discordia). The advantages of this is that only verified members can send messages to the bot, and discord chats are much easier to control than tfm chats.
---]]
-
 botName = "Hollobot#1592" -- your bot's name
 botPw = "2KnightsOfTheHollow64" -- your bot's password
 ownerID = "101454901" -- ownerID

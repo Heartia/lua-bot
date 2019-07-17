@@ -17,6 +17,8 @@ for line in io.lines("blacklist.txt") do
 	print(line)
 end
 
+print()
+
 declinedNames = {}
 words = {}
 for line in io.lines("declined.txt") do

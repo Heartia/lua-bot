@@ -20,6 +20,7 @@ end
 declinedNames = {}
 local words = {}
 for line in io.lines("declined.txt") do
+	print(words[1])
 	words[1], words[2] = line:match("(%w+) (%w+)")
 	declinedNames[#declinedNames + 1] = words[1] -- reads only the first name of each line in declined.txt
 end

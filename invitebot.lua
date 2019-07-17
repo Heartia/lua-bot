@@ -84,7 +84,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
 				if tribeHouse == "Black Lodge" then
 					tribeHouse = nil
 					local words = {}
-					words[1], words[2] = message:match("(%w+) (%w+)")
+					words[1], words[2] = message:match("(%a+%#%d+) (%a+%#%d+)")
 					if words[1] == "declined" and words[2] then -- detects the declined command
 						lastMessageDeclined = playerName
 						lastMessageTest = nil

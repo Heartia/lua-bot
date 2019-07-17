@@ -18,7 +18,7 @@ for line in io.lines("blacklist.txt") do
 end
 
 declinedNames = {}
-local words = {}
+words = {}
 for line in io.lines("declined.txt") do
 	print(words[1])
 	words[1], words[2] = line:match("(%w+) (%w+)")

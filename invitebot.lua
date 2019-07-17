@@ -205,7 +205,7 @@ client:on("profileLoaded", function(data)
 		tribeHouse = data.tribeName
 	else
 		if data.tribeName == "" and data.level >= 20 then -- checks if player is above lvl 20 and is not in a tribe
-			local valid = true
+			valid = true
 			for _,v in pairs(blacklistNames) do
 				if v == data.playerName then -- checks if player is blacklisted
 					print(v)

@@ -89,6 +89,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
 						lastMessageDeclined = playerName
 						lastMessageTest = nil
 						declinedFile:write(words[2] .. " " .. playerName, "\n")
+						declinedFile:flush()
 						declinedNames[#declinedNames + 1] = words[2]
 						client:sendChatMessage(chat, playerName .. "has put " .. words[2] .. " on the declined list.")
 						print(playerName .. " has put " .. words[2] .. " on the declined list.")

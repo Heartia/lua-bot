@@ -231,4 +231,8 @@ client:on("profileLoaded", function(data)
 	end
 end)
 
+client:on("connectionFailed", function()
+    client:start()
+end)
+
 client:start(ownerID, key)

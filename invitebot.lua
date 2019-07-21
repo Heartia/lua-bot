@@ -27,8 +27,6 @@ for line in io.lines("declined.txt") do
 	declinedNames[#declinedNames + 1] = words[1] -- reads only the first name of each line in declined.txt
 end
 
-declinedFile = io.open("declined.txt", "a") -- allows values to be appended to declined.txt
-
 -- connects to tfm
 client:once("ready", function()
     print("Ready to connect!")

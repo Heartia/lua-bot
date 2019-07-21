@@ -96,8 +96,8 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
 					words[1], words[2] = message:match("(%a+) (%a+%#%d+)")
 					if words[1] == "declined" and words[2] then -- detects the declined command
 						lastMessageDeclined = playerName
-						usersOfDecline[#usersOfDecline+1] = lastMessageDeclined
 						lastMessageTest = nil
+						usersOfDecline[#usersOfDecline+1] = lastMessageDeclined
 						declinedNames[#declinedNames + 1] = words[2]
 						client:sendChatMessage(chat, playerName .. "has put " .. words[2] .. " on the declined list.")
 						print(playerName .. " has put " .. words[2] .. " on the declined list.")

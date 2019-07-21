@@ -66,11 +66,11 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 				end
 			end
 		elseif string.lower(message) == "logs" then -- if bot recieves message "logs" from admin
-			for index, name in pairs(admins) do
-				if playerName == name then
+			for k, v in pairs(admins) do
+				if playerName == v then
                     			local declinedString = ""
-					for index, name in pairs(declinedNames) do
-                         			declinedString = declinedString .. name .. " " .. userOfDecline[name] .. " "
+					for k, v in pairs(declinedNames) do
+                         			declinedString = declinedString .. v .. " " .. userOfDecline[v] .. " "
                     			end
                     			print(declinedString)
 					break

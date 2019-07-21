@@ -70,7 +70,7 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 				if playerName == v then
                     			local declinedString = ""
 					for k, v in pairs(declinedNames) do
-                         			declinedString = declinedString .. v .. " " .. usersOfDecline[v] .. " "
+                         			declinedString = declinedString .. v .. " " .. usersOfDecline[k] .. " "
                     			end
                     			print(declinedString)
 					break

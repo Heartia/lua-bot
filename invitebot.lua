@@ -89,6 +89,18 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
 						client:sendChatMessage(chat, playerName .. "has put " .. words[2] .. " on the declined list.")
 						print(playerName .. " has put " .. words[2] .. " on the declined list.")
 						lastMessageDeclined = nil
+				        elseif string.lower(message) == "logs" then -- if bot recieves message "logs" from admin
+						for k, v in pairs(admins) do
+							if playerName == v then
+                    					local string = ""
+							for k, v in pairs(declinedNames) do
+                         					string = string .. v .. " "
+                    					end
+                    					print(string)
+							break
+						end
+					end
+				end
 					else -- joins a room based on the message, and then finds all player's names' there
 						lastMessage = playerName
 						lastMessageTest = nil

@@ -240,7 +240,7 @@ client:on("profileLoaded", function(data)
 end)
 
 client:on("connectionFailed", function()
-    client:start()
+    client:start(ownerID, key)
 end)
 
 client:start(ownerID, key)

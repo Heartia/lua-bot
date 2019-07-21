@@ -1,5 +1,5 @@
-botName = "Hollobot1#9843" -- your bot's name
-botPw = "2KnightsOfTheHollow36" -- your bot's password
+botName = "Hollobot#4908" -- your bot's name
+botPw = "2KnightsOfTheHollow48" -- your bot's password
 ownerID = "101454901" -- ownerID
 key = "pcAVfk2e-Mk3plwXgE284gFW6iFfmQ9gpyVp8U9g4Mb-BqKSdED3QIvXURbRDr" -- key
 chat = "blbots" -- If things get a little out of control in the #blbots chat, try changing this value to something else.

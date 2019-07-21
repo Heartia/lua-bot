@@ -60,7 +60,6 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 		if string.lower(message) == "close" then -- if bot recieves message "close" from admin
 			for k, v in pairs(admins) do
 				if playerName == v then
-					declinedFile:close()
 					client:sendChatMessage(chat, botName .. " has disconnected.")
 					print("disconnecting...")
 					client:disconnect()
@@ -88,8 +87,6 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
 					if words[1] == "declined" and words[2] then -- detects the declined command
 						lastMessageDeclined = playerName
 						lastMessageTest = nil
-						declinedFile:write(words[2] .. " " .. playerName, "\n")
-						declinedFile:flush()
 						declinedNames[#declinedNames + 1] = words[2]
 						client:sendChatMessage(chat, playerName .. "has put " .. words[2] .. " on the declined list.")
 						print(playerName .. " has put " .. words[2] .. " on the declined list.")

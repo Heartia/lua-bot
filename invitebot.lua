@@ -82,6 +82,128 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 end)
 
 client:on("chatMessage", function(chatName, playerName, message, playerCommunity)
+    if playerName == botName or (chatName == chat and (lastMessage or lastMessageTest or lastMessageDeclined)) then return end
+    lastMessageTest = playerName
+    client:sendCommand("profile " .. playerName)
+    timer.setTimeout(700, function()
+        if tribeHouse == "some tribe" then
+            tribeHouse = nil
+            local words, c = { }, 0
+            for slice in message:gmatch("%S+") do
+                c = c + 1
+                words[c] = slice
+            end
+            words[1] = words[1]:lower()
+            if words[1] == "declined" and words[2] then -- detects the declined command
+                lastMessageDeclined = playerName
+                lastMessageTest = nil
+                usersOfDecline[#usersOfDecline+1] = lastMessageDeclined
+                declinedNames[#declinedNames + 1] = words[2]
+                client:sendChatMessage(chat, playerName .. "has put " .. words[2] .. " on the declined list.")
+                print(playerName .. " has put " .. words[2] .. " on the declined list.")
+                lastMessageDeclined = nil
+            else -- joins a room based on the message, and then finds all player's names' there
+						lastMessage = playerName
+						lastMessageTest = nil
+						client:sendWhisper(playerName, "The possible recruits of room " .. message .. " will be whispered to you in a few moments.")
+						print("[" .. playerName .. "] The possible recruits of room " .. message .. " will be whispered to you in a few moments.")
+						client:sendChatMessage(chat, "The bot is now busy. Please do not enter any more room names until the bot is available again.")
+						print("The bot is now busy. Please do not enter any more room names until the bot is available again.")
+						client:enterRoom (message, false)
+						playerListTimer = timer.setInterval(100, function()
+							if playerData then -- once playerList is loaded
+								timer.clearInterval(playerListTimer)
+								timer.setTimeout(100, function()
+									local nameList = {}
+									for k, v in pairs(playerData) do
+										nameList[#nameList+1] = v.playerName -- gets everyone's names
+									end
+									local i = 1
+									bufferTimer = timer.setInterval(1000, function() -- experiment with this
+										client:sendCommand("profile " .. nameList[i])
+										i = i + 1
+										if i-1 == #nameList then -- once all profile cmds are executed
+											timer.clearInterval(bufferTimer)
+											timer.setTimeout(1000, function()
+											if #recruits == 0 then
+												print("[" .. lastMessage .. "] The bot couldn't find any recruits here.")
+												client:sendWhisper(lastMessage, "The bot couldn't find any recruits here.")
+												lastMessage = nil -- resets bot
+												i = nil
+												playerData = nil
+												nameList = nil
+												recruits = {}
+												client:joinTribeHouse()
+												client:sendChatMessage(chat, "The bot is now available again.")
+												print("The bot is now available again.")
+											elseif #recruits >= 4 then
+												local j = 4
+												whisperTimer = timer.setInterval(1000, function()
+												print("[" .. lastMessage .. "] " .. recruits[j-3] .. ", " .. recruits[j-2] .. ", " .. recruits[j-1] .. ", " .. recruits[j])
+												client:sendWhisper(lastMessage, recruits[j-3] .. ", " .. recruits[j-2] .. ", " .. recruits[j-1] .. ", " .. recruits[j]) -- whispers the player the recruits in groups of 4 to evade the 80 characters message limit
+												j = j + 4
+												if j > #recruits then
+													timer.clearInterval(whisperTimer)
+													timer.setTimeout(1000, function()
+													local otherRecruits = nil
+													if #recruits % 4 == 3 then
+														otherRecruits = recruits[#recruits-2] .. ", " .. recruits[#recruits-1] .. ", " .. recruits[#recruits]
+													elseif #recruits % 4 == 2 then
+														otherRecruits = recruits[#recruits-1] .. ", " .. recruits[#recruits]
+													elseif #recruits % 4 == 1 then
+														otherRecruits = recruits[#recruits]
+													end
+													if #recruits % 4 ~= 0 then
+														print("[" .. lastMessage .. "] " .. otherRecruits)
+														client:sendWhisper(lastMessage, otherRecruits) -- whispers the rest of the recruits
+													end
+													lastMessage = nil -- resets bot
+													i = nil
+													j = nil
+													playerData = nil
+													nameList = nil
+													recruits = {}
+													client:joinTribeHouse()
+													print("The bot is now available again.")
+													client:sendChatMessage(chat, "The bot is now available again.")														end)
+												end
+											end)
+										else
+											local otherRecruits = nil
+											if #recruits == 3 then
+												otherRecruits = recruits[1] .. ", " .. recruits[2] .. ", " .. recruits[3]
+											elseif #recruits == 2 then
+												otherRecruits = recruits[1] .. ", " .. recruits[2]
+											elseif #recruits == 1 then
+												otherRecruits = recruits[1]
+											end
+											print("[" .. lastMessage .. "] " .. otherRecruits)
+											client:sendWhisper(lastMessage, otherRecruits) -- whispers the rest of the recruits
+											lastMessage = nil -- resets bot
+											i = nil
+											playerData = nil
+											nameList = nil
+											recruits = {}
+											client:joinTribeHouse()
+											print("The bot is now available again.")
+											client:sendChatMessage(chat, "The bot is now available again.")
+										end
+									end)
+								end
+							end)
+						end)
+					end
+				end)
+			end
+		end
+		if lastMessageTest then
+			lastMessageTest = nil
+		end
+        end
+    end)
+end)
+
+--[[client:on("chatMessage", function(chatName, playerName, message, playerCommunity)
 	if playerName == botName then
 		return
 	elseif chatName == chat then
@@ -204,7 +326,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
 			end)
 		end
 	end
-end)
+end)]]
 
 client:on("refreshPlayerList", function(playerList)
 	if lastMessage then

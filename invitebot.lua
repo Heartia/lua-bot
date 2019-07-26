@@ -70,7 +70,7 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 		elseif string.lower(message) == "logs" then
 			local declinedString = ""
 			for k, v in pairs(declinedNames) do
-				declinedString = declinedString .. v .. " " .. usersOfDecline[k] .. " "
+				declinedString = declinedString .. v .. " " .. declinedNames[k] .. " "
 			end
         	printTable(usersOfDecline)
 			print(declinedString)
@@ -94,7 +94,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
             if words[1] == "declined" and words[2] then -- detects the declined command
                 lastMessageDeclined = playerName
                 lastMessageTest = nil
-                usersOfDecline[#usersOfDecline+1] = lastMessageDeclined
+                usersOfDecline[#usersOfDecline+1] = playerName
                 declinedNames[#declinedNames + 1] = words[2]
                 client:sendChatMessage(chat, playerName .. "has put " .. words[2] .. " on the declined list.")
                 print(playerName .. " has put " .. words[2] .. " on the declined list.")

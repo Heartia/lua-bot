@@ -83,13 +83,14 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
     timer.setTimeout(700, function()
         if tribeHouse == "Black Lodge" then
             tribeHouse = nil
+            print("Message: " .. message)
             local words, c = { }, 0
             for slice in message:gmatch("%S+") do
                 c = c + 1
                 words[c] = slice
             end
             words[1] = words[1]:lower()
-		print("Words: "..words[1].." : "..words[2])
+	    print("Words: "..words[1].." : "..words[2])
             if words[1] == "declined" and words[2] then -- detects the declined command
                 lastMessageDeclined = playerName
                 lastMessageTest = nil

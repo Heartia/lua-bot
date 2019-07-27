@@ -8,7 +8,7 @@ client:setCommunity(14)
 
 admins = { ["Radioactium#0000"] = true, ["Hollosou#6531"] = true, ["Lanadelrey#1407"] = true, ["Brooklyn#4914"] = true, ["Ashbolt#0000"] = true, ["Voyeur#9539"] = true, ["Alfiecakes#0000"] = true, ["Trivia#3603"] = true, ["Floawt#0000"] = true, ["Laurineeeeee#2008"] = true, ["Voshk#1486"] = true, ["Fluffy#3087"] = true, ["Ninetailsdes#0000"] = true, ["Sophsoul#0918"] = true }
 
-local timer, transfromage, client, client._handle_players = require("timer"), require("transfromage"), transfromage.client(), true
+local timer, transfromage, client, client.handle_players = require("timer"), require("transfromage"), transfromage.client(), true
 
 
 blacklistNames = {}

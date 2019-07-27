@@ -63,7 +63,6 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 			client:sendChatMessage(chat, botName .. " has disconnected.")
 			print("disconnecting...")
 			client:disconnect()
-			break
 		elseif string.lower(message) == "logs" and admins[playerName] then
 			local declinedString = ""
 			for i = 1, #declinedNames do

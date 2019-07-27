@@ -89,6 +89,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                 words[c] = slice
             end
             words[1] = words[1]:lower()
+		print(words[1], words[2])
             if words[1] == "declined" and words[2] then -- detects the declined command
                 lastMessageDeclined = playerName
                 lastMessageTest = nil

@@ -239,6 +239,7 @@ client:on("profileLoaded", function(data)
 					end
 				end
 				if valid == true then
+					print(#recruits)
 					recruits[#recruits+1] = data.playerName -- new recruit!
 				end
 			end

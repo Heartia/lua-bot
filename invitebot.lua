@@ -208,13 +208,41 @@ client:on("refreshPlayerList", function(playerList)
 	end
 end)
 
-client:on("profileLoaded", function(data)
+--[[client:on("profileLoaded", function(data)
 	if lastMessageTest then
 		tribeHouse = data.tribeName
 	else
 		if data.tribeName == "" and data.level >= 20 and not blacklistNames[data.playerName] or not declinedNames[data.playerName] then -- checks if player is above lvl 20 and is not in a tribe
 			recruits[#recruits+1] = data.playerName -- new recruit!
 		end	
+	end
+end)]]
+
+client:on("profileLoaded", function(data)
+	if lastMessageTest then
+		tribeHouse = data.tribeName
+	else
+		if data.tribeName == "" and data.level >= 20 then -- checks if player is above lvl 20 and is not in a tribe
+			valid = true
+			for _,v in pairs(blacklistNames) do
+				if v == data.playerName then -- checks if player is blacklisted
+					print(v)
+					valid = false
+					break
+				end
+			end
+			if valid == true then
+				for _,v in pairs(declinedNames) do
+					if v == data.playerName then -- checks if player has declined an invite before
+						valid = false
+						break
+					end
+				end
+				if valid == true then
+					recruits[#recruits+1] = data.playerName -- new recruit!
+				end
+			end
+		end
 	end
 end)
 

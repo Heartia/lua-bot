@@ -212,7 +212,7 @@ client:on("profileLoaded", function(data)
 	if lastMessageTest then
 		tribeHouse = data.tribeName
 	else
-		if data.tribeName == "" and data.level >= 20 and not(blacklistNames[data.playerName] or declinedNames[data.playerName]) then -- checks if player is above lvl 20 and is not in a tribe
+		if data.tribeName == "" and data.level >= 20 and not blacklistNames[data.playerName] or not declinedNames[data.playerName] then -- checks if player is above lvl 20 and is not in a tribe
 			recruits[#recruits+1] = data.playerName -- new recruit!
 		end	
 	end

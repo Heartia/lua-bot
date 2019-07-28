@@ -81,7 +81,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
     lastMessageTest = playerName
     client:sendCommand("profile " .. playerName)
     timer.setTimeout(700, function()
-        if tribeHouse == "some tribe" then
+        if tribeHouse == "Black Lodge" then
             tribeHouse = nil
             local words, c = { }, 0
             for slice in message:gmatch("%S+") do

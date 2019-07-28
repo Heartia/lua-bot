@@ -49,7 +49,7 @@ end)
 
 lastMessageTest = nil -- used to test if player is in black lodge
 lastMessage = nil -- used when room cmd detected
-lastMessageDeclined = nil-- used when declined cmd detected
+lastMessageDeclined = nil -- used when declined cmd detected
 recruits = {}
 playerData = nil
 bufferTimer = nil

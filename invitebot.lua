@@ -116,8 +116,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                             local nameList = {}
                             for k, v in pairs(playerData) do
                                 nameList[#nameList+1] = v.playerName -- gets everyone's names
-				print("k: " .. k .. " v: " .. v)
-				
+				print("k: " .. k)
                             end
                             local i = 1
                             bufferTimer = timer.setInterval(1000, function() -- experiment with this

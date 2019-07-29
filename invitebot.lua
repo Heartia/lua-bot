@@ -110,15 +110,14 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                 print("The bot is now busy. Please do not enter any more room names until the bot is available again.")
                 client:enterRoom (message, false)
                 playerListTimer = timer.setInterval(100, function()
-		print("Player List Timer: "..playerListTimer)
-		print("Player Data: "..playerData)
                     if playerData then -- once playerList is loaded
                         timer.clearInterval(playerListTimer)
                         timer.setTimeout(100, function()
                             local nameList = {}
                             for k, v in pairs(playerData) do
                                 nameList[#nameList+1] = v.playerName -- gets everyone's names
-				print("Player List Timer: "..playerListTimer)
+				print("k: " .. k .. " v: " .. v)
+				
                             end
                             local i = 1
                             bufferTimer = timer.setInterval(1000, function() -- experiment with this

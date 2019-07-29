@@ -110,6 +110,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                 print("The bot is now busy. Please do not enter any more room names until the bot is available again.")
                 client:enterRoom (message, false)
                 playerListTimer = timer.setInterval(100, function()
+		    
                     if playerData then -- once playerList is loaded
                         timer.clearInterval(playerListTimer)
                         timer.setTimeout(100, function()

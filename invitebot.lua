@@ -14,7 +14,7 @@ admins = { ["Radioactium#0000"] = true, ["Hollosou#6531"] = true, ["Lanadelrey#1
 
 blacklistNames = {}
 for line in io.lines("blacklist.txt") do 
-	blacklistNames[line] = true -- reads blacklist.txt
+	blacklistNames[#blacklistNames+1] = line -- reads blacklist.txt
 	print(line)
 end
 
@@ -27,7 +27,7 @@ words = {}
 for line in io.lines("declined.txt") do
 	for k, v in line:gmatch("(%S+) (%S+)") do
 		print(k)
-		declinedNames[k] = true
+		declinedNames[#declinedNames+1] = k
 	end
 end
 

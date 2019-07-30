@@ -68,8 +68,7 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 		elseif string.lower(message) == "logs" and admins[playerName] then
 			local declinedString = ""
 			for i = 1, #declinedNames do
-				declinedString = declinedString .. declinedNames[i] .. " " .. usersOfDecline[i] .. " "
-				print(usersOfDecline)
+			declinedString = declinedString .. declinedNames[#declinedNames - #usersOfDecline + i] .. " " .. usersOfDecline[i] .. " "				print(usersOfDecline)
 			end
 			print(declinedString)
 		end	
@@ -116,13 +115,13 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                             local nameList = {}
                             for k, v in pairs(playerData) do
                                 nameList[#nameList+1] = v.playerName -- gets everyone's names
-				print("k: " .. k)
+				-- print("k: " .. k)
                             end
                             local i = 1
                             bufferTimer = timer.setInterval(1000, function() -- experiment with this
                                 client:sendCommand("profile " .. nameList[i])
                                 i = i + 1
-				print("i: "..i)								
+				-- print("i: "..i)								
                                 if i-1 == #nameList then -- once all profile cmds are executed
                                     timer.clearInterval(bufferTimer)
                                     timer.setTimeout(1000, function()
@@ -144,7 +143,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                                                 print("[" .. lastMessage .. "] " .. recruits[j-3] .. ", " .. recruits[j-2] .. ", " .. recruits[j-1] .. ", " .. recruits[j])
                                                 client:sendWhisper(lastMessage, recruits[j-3] .. ", " .. recruits[j-2] .. ", " .. recruits[j-1] .. ", " .. recruits[j]) -- whispers the player the recruits in groups of 4 to evade the 80 characters message limit
                                                 j = j + 4
-						print("j: "..j)		
+						-- print("j: "..j)		
                                                 if j > #recruits then
                                                     timer.clearInterval(whisperTimer)
                                                     timer.setTimeout(1000, function()

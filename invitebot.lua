@@ -70,9 +70,7 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 			for i = 1, #declinedNames do
 				if declinedNames[#declinedNames - #usersOfDecline + 1] and usersOfDecline[i] then
 					declinedString = declinedString .. declinedNames[#declinedNames - #usersOfDecline + i] .. " " .. usersOfDecline[i] .. " "				print(usersOfDecline)
-			        else
-					print("Nothing in the declined logs to print.")
-				end
+			        end
 			end
 			print(declinedString)
 		end	
@@ -119,17 +117,14 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                             local nameList = {}
                             for k, v in pairs(playerData) do
                                 nameList[#nameList+1] = v.playerName -- gets everyone's names
-				-- print("k: " .. k)
                             end
                             local i = 1
                             bufferTimer = timer.setInterval(1000, function() -- experiment with this
                                 client:sendCommand("profile " .. nameList[i])
-                                i = i + 1
-				-- print("i: "..i)								
+                                i = i + 1								
                                 if i-1 == #nameList then -- once all profile cmds are executed
                                     timer.clearInterval(bufferTimer)
-                                    timer.setTimeout(1000, function()
-					print("#recruits: "..#recruits)										
+                                    timer.setTimeout(1000, function()									
                                         if #recruits == 0 then
                                             print("[" .. lastMessage .. "] The bot couldn't find any recruits here.")
                                             client:sendWhisper(lastMessage, "The bot couldn't find any recruits here.")
@@ -214,16 +209,6 @@ client:on("refreshPlayerList", function(playerList)
 		playerData = playerList -- gets list of all players in a room
 	end
 end)
-
---[[client:on("profileLoaded", function(data)
-	if lastMessageTest then
-		tribeHouse = data.tribeName
-	else
-		if data.tribeName == "" and data.level >= 20 and not blacklistNames[data.playerName] or not declinedNames[data.playerName] then -- checks if player is above lvl 20 and is not in a tribe
-			recruits[#recruits+1] = data.playerName -- new recruit!
-		end	
-	end
-end)]]
 
 client:on("profileLoaded", function(data)
 	if lastMessageTest then

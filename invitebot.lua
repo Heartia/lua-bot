@@ -68,7 +68,11 @@ client:on("whisperMessage", function(playerName, message) -- when whisper reciev
 		elseif string.lower(message) == "logs" and admins[playerName] then
 			local declinedString = ""
 			for i = 1, #declinedNames do
-			declinedString = declinedString .. declinedNames[#declinedNames - #usersOfDecline + i] .. " " .. usersOfDecline[i] .. " "				print(usersOfDecline)
+				if declinedNames[#declinedNames - #usersOfDecline + 1] and usersOfDecline[i] then
+					declinedString = declinedString .. declinedNames[#declinedNames - #usersOfDecline + i] .. " " .. usersOfDecline[i] .. " "				print(usersOfDecline)
+			        else
+					print("Nothing in the declined logs to print.")
+				end
 			end
 			print(declinedString)
 		end	

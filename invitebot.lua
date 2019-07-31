@@ -42,7 +42,7 @@ client:once("connection", function()
     print("Connected!")
     client:joinTribeHouse() --bot will be in tribehouse when connected.
 	client:joinChat(chat)
-	timer.setTimeout(1000, function() -- 10000
+	timer.setTimeout(2000, function() -- 10000
 		client:sendChatMessage(chat, botName .. " has connected.")
 	end)
 end)
@@ -81,7 +81,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
     if playerName == botName or (chatName == chat and (lastMessage or lastMessageTest or lastMessageDeclined)) then return end
     lastMessageTest = playerName
     client:sendCommand("profile " .. playerName)
-    timer.setTimeout(70, function() -- 700
+    timer.setTimeout(140, function() -- 700
         if tribeHouse == "Black Lodge" then
             tribeHouse = nil
             local words, c = { }, 0
@@ -107,21 +107,21 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                 client:sendChatMessage(chat, "The bot is now busy. Please do not enter any more room names until the bot is available again.")
                 print("The bot is now busy. Please do not enter any more room names until the bot is available again.")
                 client:enterRoom (message, false)
-                playerListTimer = timer.setInterval(10, function() -- 100
+                playerListTimer = timer.setInterval(20, function() -- 100
                     if playerData then -- once playerList is loaded
                         timer.clearInterval(playerListTimer)
-                        timer.setTimeout(10, function() -- 100
+                        timer.setTimeout(20, function() -- 100
                             local nameList = {}
                             for k, v in pairs(playerData) do
                                 nameList[#nameList+1] = v.playerName -- gets everyone's names
                             end
                             local i = 1
-                            bufferTimer = timer.setInterval(250, function() -- 1000
+                            bufferTimer = timer.setInterval(200, function() -- 1000
                                 client:sendCommand("profile " .. nameList[i])
                                 i = i + 1								
                                 if i-1 == #nameList then -- once all profile cmds are executed
                                     timer.clearInterval(bufferTimer)
-                                    timer.setTimeout(100, function() -- 1000								
+                                    timer.setTimeout(200, function() -- 1000								
                                         if #recruits == 0 then
                                             print("[" .. lastMessage .. "] The bot couldn't find any recruits here.")
                                             client:sendWhisper(lastMessage, "The bot couldn't find any recruits here.")
@@ -135,14 +135,14 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                                             print("The bot is now available again.")
                                         elseif #recruits >= 4 then
                                             local j = 4
-                                            whisperTimer = timer.setInterval(100, function() -- 1000
+                                            whisperTimer = timer.setInterval(200, function() -- 1000
                                                 print("[" .. lastMessage .. "] " .. recruits[j-3] .. ", " .. recruits[j-2] .. ", " .. recruits[j-1] .. ", " .. recruits[j])
                                                 client:sendWhisper(lastMessage, recruits[j-3] .. ", " .. recruits[j-2] .. ", " .. recruits[j-1] .. ", " .. recruits[j]) -- whispers the player the recruits in groups of 4 to evade the 80 characters message limit
                                                 j = j + 4
 						-- print("j: "..j)		
                                                 if j > #recruits then
                                                     timer.clearInterval(whisperTimer)
-                                                    timer.setTimeout(100, function() -- 1000
+                                                    timer.setTimeout(200, function() -- 1000
                                                         local otherRecruits = nil
                                                         if #recruits % 4 == 3 then
                                                             otherRecruits = recruits[#recruits-2] .. ", " .. recruits[#recruits-1] .. ", " .. recruits[#recruits]

@@ -91,9 +91,6 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
             end
             words[1] = words[1]:lower()
 	    --print(words[1])
-	    if words[2] then
-	    	print(words[2])
-	    end
             if words[1] == "declined" and words[2] then -- detects the declined command
                 lastMessageDeclined = playerName
                 lastMessageTest = nil
@@ -119,12 +116,12 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                                 nameList[#nameList+1] = v.playerName -- gets everyone's names
                             end
                             local i = 1
-                            bufferTimer = timer.setInterval(1000, function() -- experiment with this
+                            bufferTimer = timer.setInterval(250, function() -- 1000
                                 client:sendCommand("profile " .. nameList[i])
                                 i = i + 1								
                                 if i-1 == #nameList then -- once all profile cmds are executed
                                     timer.clearInterval(bufferTimer)
-                                    timer.setTimeout(1000, function()									
+                                    timer.setTimeout(250, function() -- 1000								
                                         if #recruits == 0 then
                                             print("[" .. lastMessage .. "] The bot couldn't find any recruits here.")
                                             client:sendWhisper(lastMessage, "The bot couldn't find any recruits here.")

@@ -15,7 +15,7 @@ admins = { ["Radioactium#0000"] = true, ["Hollosou#6531"] = true, ["Lanadelrey#1
 blacklistNames = {}
 for line in io.lines("blacklist.txt") do 
 	blacklistNames[#blacklistNames+1] = line -- reads blacklist.txt
-	print(line)
+	--print(line)
 end
 
 print()
@@ -26,7 +26,7 @@ words = {}
 
 for line in io.lines("declined.txt") do
 	for k, v in line:gmatch("(%S+) (%S+)") do
-		print(k)
+		--print(k)
 		declinedNames[#declinedNames+1] = k
 	end
 end
@@ -90,7 +90,7 @@ client:on("chatMessage", function(chatName, playerName, message, playerCommunity
                 words[c] = slice
             end
             words[1] = words[1]:lower()
-	    print(words[1])
+	    --print(words[1])
 	    if words[2] then
 	    	print(words[2])
 	    end
@@ -218,7 +218,7 @@ client:on("profileLoaded", function(data)
 			valid = true
 			for _,v in pairs(blacklistNames) do
 				if v == data.playerName then -- checks if player is blacklisted
-					print(v)
+					--print(v)
 					valid = false
 					break
 				end
@@ -231,7 +231,7 @@ client:on("profileLoaded", function(data)
 					end
 				end
 				if valid == true then
-					print(#recruits)
+					--print(#recruits)
 					recruits[#recruits+1] = data.playerName -- new recruit!
 				end
 			end

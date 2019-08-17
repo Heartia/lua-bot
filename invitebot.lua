@@ -212,13 +212,9 @@ client:on(
                                                                         recruits = {}
                                                                         client:joinTribeHouse()
                                                                         print("The bot is now available again.")
-                                                                        timer.setTimeout(
-                                                                            200,
-                                                                            function()
-                                                                            client:sendChatMessage(
-                                                                                chat,
-                                                                                "The bot is now available again."
-                                                                            )
+                                                                        client:sendChatMessage(
+                                                                            chat,
+                                                                            "The bot is now available again."
                                                                         )
                                                                     elseif #recruits >= 4 then
                                                                         local j = 4

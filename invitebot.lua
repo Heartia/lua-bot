@@ -3,23 +3,6 @@ botPw = os.getenv("PW") -- your bot's password
 ownerID = os.getenv("ID") -- ownerID
 key = os.getenv("KEY") -- key
 chat = "blbots-en2" -- If things get a little out of control in the #blbots-en2 chat, try changing this value to something else.
-admins = {
-    "Radioactium#0000",
-    "Hollosou#6531",
-    "Hollowedsoul#6354",
-    "Lanadelrey#1407",
-    "Brooklyn#4914",
-    "Ashbolt#0000",
-    "Voyeur#9539",
-    "Alfiecakes#0000",
-    "Trivia#3603",
-    "Floawt#0000",
-    "Laurineeeeee#2008",
-    "Voshk#1486",
-    "Fluffy#3087",
-    "Ninetailsdes#0000",
-    "Sophsoul#0918"
-} -- add admins here
 local timer, transfromage = require("timer"), require("transfromage")
 client = transfromage.client()
 client._handle_players = true
@@ -42,7 +25,7 @@ admins = {
     ["Fluffy#3087"] = true,
     ["Ninetailsdes#0000"] = true,
     ["Sophsoul#0918"] = true
-}
+} -- Add admins here
 
 blacklistNames = {}
 for line in io.lines("blacklist.txt") do

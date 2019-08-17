@@ -211,6 +211,11 @@ client:on(
                                                                         nameList = nil
                                                                         recruits = {}
                                                                         client:joinTribeHouse()
+                                                                        print("The bot is now available again.")
+                                                                        client:sendChatMessage(
+                                                                            chat,
+                                                                            "The bot is now available again."
+                                                                        )
                                                                     elseif #recruits >= 4 then
                                                                         local j = 4
                                                                         whisperTimer =
@@ -300,6 +305,11 @@ client:on(
                                                                                             nameList = nil
                                                                                             recruits = {}
                                                                                             client:joinTribeHouse()
+                                                                                            print("The bot is now available again.")
+                                                                                            client:sendChatMessage(
+                                                                                                chat,
+                                                                                                "The bot is now available again."
+                                                                                            )
                                                                                         end
                                                                                     )
                                                                                 end
@@ -328,6 +338,11 @@ client:on(
                                                                         nameList = nil
                                                                         recruits = {}
                                                                         client:joinTribeHouse()
+                                                                        print("The bot is now available again.")
+                                                                        client:sendChatMessage(
+                                                                            chat,
+                                                                            "The bot is now available again."
+                                                                        )
                                                                     end
                                                                 end
                                                             )
@@ -338,11 +353,6 @@ client:on(
                                         )
                                     end
                                 end
-                            )
-                            print("The bot is now available again.")
-                            client:sendChatMessage(
-                                chat,
-                                "The bot is now available again."
                             )
                         end
                     end

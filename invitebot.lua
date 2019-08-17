@@ -29,6 +29,7 @@ client:setCommunity(14)
 admins = {
     ["Radioactium#0000"] = true,
     ["Hollosou#6531"] = true,
+    ["Hollowedsoul#6354"]
     ["Lanadelrey#1407"] = true,
     ["Brooklyn#4914"] = true,
     ["Ashbolt#0000"] = true,

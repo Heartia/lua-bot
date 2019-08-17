@@ -211,8 +211,6 @@ client:on(
                                                                         nameList = nil
                                                                         recruits = {}
                                                                         client:joinTribeHouse()
-                                                                        for i = 0, 100000, 1  do
-                                                                        end
                                                                         print("The bot is now available again.")
                                                                         client:sendChatMessage(
                                                                             chat,

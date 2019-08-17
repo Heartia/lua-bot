@@ -351,6 +351,12 @@ client:on(
                                                 )
                                             end
                                         )
+                                    else
+                                        print("There was no one in that room. The bot is now available again.")
+                                        client:sendChatMessage(
+                                            chat,
+                                            "There was no one in that room. The bot is now available again."
+                                        )
                                     end
                                 end
                             )

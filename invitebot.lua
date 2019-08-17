@@ -211,11 +211,9 @@ client:on(
                                                                         nameList = nil
                                                                         recruits = {}
                                                                         client:joinTribeHouse()
-                                                                        timer.setTimeout(
-                                                                            200,
-                                                                            function()
-                                                                            print("The bot is now available again.")
-                                                                        )
+                                                                        for i = 0, 100000, 1  do
+                                                                        end
+                                                                        print("The bot is now available again.")
                                                                         client:sendChatMessage(
                                                                             chat,
                                                                             "The bot is now available again."

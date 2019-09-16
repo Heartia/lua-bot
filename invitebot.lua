@@ -386,7 +386,7 @@ client:on(
         if lastMessageTest then
             tribeHouse = data.tribeName
         else
-            if data.tribeName == "" and data.level >= 20 then -- checks if player is above lvl 20 and is not in a tribe
+            if data.tribeName == "" and data.level >= 25 then -- checks if player is above lvl 20 and is not in a tribe
                 valid = true
                 for _, v in pairs(blacklistNames) do
                     if v == data.playerName then -- checks if player is blacklisted
